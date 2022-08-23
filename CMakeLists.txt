@@ -21,8 +21,9 @@ project(demo)# 表示最终要生成的elf文件的名字叫demo ，使用的源
 # 第二个参数var是用于存放源文件列表的变量。
 # ux_source_directory()也存在弊端，它会把指定目录下的所有源文件都加进来，可能会加入一些我们不需要的文件，此时我们可以使用set命令去新建变量来存放需要的源文件，如下：
 # set(SOURCES
-#     ./main.c
-#     ./testFunc1.c
-#     ./testFunc.c)
-aux_source_directory(. SOURCES)
-add_executable(${PROJECT_NAME} ${SOURCES})
+# ./main.c
+# ./testFunc1.c
+# ./testFunc.c)
+aux_source_directory(test1 SRC_LIST)
+aux_source_directory(test2 SRC_LIST1)
+add_executable(${PROJECT_NAME} main.cpp ${SRC_LIST} ${SRC_LIST1})
