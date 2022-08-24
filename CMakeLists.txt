@@ -24,6 +24,8 @@ project(demo)# 表示最终要生成的elf文件的名字叫demo ，使用的源
 # ./main.c
 # ./testFunc1.c
 # ./testFunc.c)
+# 向工程添加多个指定头文件的搜索路径，路径之间用空格分隔
+include_directories(test1 test1)
 aux_source_directory(test1 SRC_LIST)
 aux_source_directory(test2 SRC_LIST1)
 add_executable(${PROJECT_NAME} main.cpp ${SRC_LIST} ${SRC_LIST1})

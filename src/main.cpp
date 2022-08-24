@@ -1,6 +1,6 @@
 #include <iostream>
-#include "test1/testFunc.h"
-#include "test2/testFunc2.h"
+#include "testFunc.h"
+#include "testFunc1.h"
 int main(int argc, char const *argv[])
 {
     func(100);
