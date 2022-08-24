@@ -1,11 +1,18 @@
 # cmake的最低版本要求是2.8
 cmake_minimum_required(VERSION 2.8)
 
-# 设置C++标准为 C++ 11
-set(CMAKE_CXX_STANDARD 11)
+# 设置C++标准为 C++ 17
+set(CMAKE_CXX_STANDARD 17)
 
 # 工程名叫demo project()函数将创建一个值为demo的变量${PROJECT_NAME}
 project(demo)# 表示最终要生成的elf文件的名字叫demo ，使用的源文件是main.c
+
+set(SOURCES src/testFunc1.cpp src/testFunc2.cpp src/main.cpp)
+add_executable(${PROJECT_NAME} ${SOURCES})
+target_include_directories(${PROJECT_NAME}
+    PRIVATE
+    ${PROJECT_SOURCE_DIR}/header
+)
 
 # 可以类推，如果在同一目录下有多个源文件，那么只要在add_executable里把所有源文件都添加进去就可以了，比如
 # add_executable(${PROJECT_NAME}
@@ -25,7 +32,7 @@ project(demo)# 表示最终要生成的elf文件的名字叫demo ，使用的源
 # ./testFunc1.c
 # ./testFunc.c)
 # 向工程添加多个指定头文件的搜索路径，路径之间用空格分隔
-include_directories(test1 test1)
-aux_source_directory(test1 SRC_LIST)
-aux_source_directory(test2 SRC_LIST1)
-add_executable(${PROJECT_NAME} main.cpp ${SRC_LIST} ${SRC_LIST1})
+# include_directories(test1 test1)
+# aux_source_directory(test1 SRC_LIST)
+# aux_source_directory(test2 SRC_LIST1)
+# add_executable(${PROJECT_NAME} main.cpp ${SRC_LIST} ${SRC_LIST1})
