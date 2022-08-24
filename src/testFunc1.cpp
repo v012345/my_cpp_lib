@@ -3,9 +3,9 @@
 */
 
 #include <iostream>
-#include "testFunc.h"
+#include "testFunc1.h"
 
-void func(int data)
+void func1(int data)
 {
     std::cout << "data is " << data << std::endl;
 }
